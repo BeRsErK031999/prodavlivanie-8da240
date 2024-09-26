@@ -1,0 +1,61 @@
+.calculation-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    height: 100vh; /* Занимаем всю высоту экрана */
+}
+
+.calculation-content {
+    width: 60%; /* Левый столбец занимает 60% ширины */
+    padding-right: 20px; /* Отступ справа для разделения колонок */
+    overflow-y: none; /* Добавляем скроллинг если контент превышает высоту экрана */
+}
+
+.calculation-svg {
+    width: 40%; /* Правый столбец занимает 40% ширины */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+fieldset {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+legend {
+    font-weight: bold;
+}
+
+label {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+input[type="number"],
+select {
+    margin-left: 10px;
+    padding: 5px;
+    width: 100px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.calculation-svg img {
+    width: 100%; /* Изображение растягивается на всю ширину правой колонки */
+    height: 100%; /* Изображение растягивается на всю высоту правой колонки */
+    object-fit: cover; /* Масштабируем изображение, чтобы заполнить контейнер без искажений */
+}
