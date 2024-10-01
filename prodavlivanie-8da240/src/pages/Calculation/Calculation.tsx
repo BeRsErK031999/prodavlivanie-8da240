@@ -1,9 +1,22 @@
-import React from 'react';
-import '../../styles/Calculation.css'; // подключаем стили
-import Texts from './imports'; // Импортируем объект с текстовыми переменными
+// prodavlivanie-8da240/src/pages/Calculation/Calculation.tsx
+import React, { useState } from 'react';
+import '../../styles/Calculation.css';
+import '../../styles/Overlay.scss'; // Импортируем стили для анимации
+import Texts from './imports';
 import koticImage from '../../assets/image/kotic.webp';
+import { useNavigate } from 'react-router-dom';
 
 const Calculation: React.FC = () => {
+    const [isAnimating, setIsAnimating] = useState(false);
+    const navigate = useNavigate();
+
+    const handleClick = (path: string) => {
+        setIsAnimating(true); // Запуск анимации
+        setTimeout(() => {
+            navigate(path); // Переход на другую страницу после задержки
+        }, 1000); // Задержка соответствует длительности анимации (1с расширение + 1с исчезновение)
+    };
+
     return (
         <div className="calculation-container">
             <div className="calculation-content">
@@ -119,7 +132,29 @@ const Calculation: React.FC = () => {
                         <input type="checkbox" name="showInNewWindow" />
                         {Texts.showInNewWindowLabel}
                     </label>
+                    
                 </form>
+                <div className="bottom-panel">
+                    <button className="nav-btn" onClick={() => handleClick('/hole-calculation')}>
+                        Продавливание при наличии отверстия
+                    </button>
+                    <button className="nav-btn" onClick={() => handleClick('/edge-calculation')}>
+                        Продавливание рядом с краем плиты
+                    </button>
+                    <button className="nav-btn" onClick={() => handleClick('/corner-calculation')}>
+                        Продавливание рядом с углом плиты
+                    </button>
+                    <button className="nav-btn" onClick={() => handleClick('/unit-converter')}>
+                        Конвертор единиц измерения
+                    </button>
+                </div>
+            </div>
+
+            {/* Анимационный оверлей */}
+            <div className={`overlay ${isAnimating ? 'show' : ''}`}>
+                {Array.from({ length: 10 }).map((_, index) => (
+                    <div key={index} className="bar"></div>
+                ))}
             </div>
 
             <div className="calculation-svg">

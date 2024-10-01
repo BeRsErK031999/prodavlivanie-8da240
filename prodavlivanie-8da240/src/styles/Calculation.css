@@ -1,23 +1,56 @@
+/* prodavlivanie-8da240/src/styles/Calculation.css */
+
 .calculation-container {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     padding: 20px;
-    height: 100vh; /* Занимаем всю высоту экрана */
+    height: 100vh;
+    position: relative; /* Добавлено для позиционирования вложенных элементов */
 }
 
 .calculation-content {
-    width: 60%; /* Левый столбец занимает 60% ширины */
-    padding-right: 20px; /* Отступ справа для разделения колонок */
-    overflow-y: none; /* Добавляем скроллинг если контент превышает высоту экрана */
+    width: 60%;
+    padding-right: 20px;
+    overflow-y: auto; /* Добавлено для скроллинга при необходимости */
 }
 
 .calculation-svg {
-    width: 40%; /* Правый столбец занимает 40% ширины */
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.bottom-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.nav-btn {
+    flex: 1 1 45%;
+    margin: 5px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.nav-btn:hover {
+    background-color: #0056b3;
+}
+
+.calculation-svg img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Дополнительные стили для формы и элементов */
 fieldset {
     margin-bottom: 20px;
     padding: 10px;
@@ -41,21 +74,15 @@ select {
     width: 100px;
 }
 
-button {
+button[type="submit"] {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #28a745;
     color: white;
     border: none;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
-
-.calculation-svg img {
-    width: 100%; /* Изображение растягивается на всю ширину правой колонки */
-    height: 100%; /* Изображение растягивается на всю высоту правой колонки */
-    object-fit: cover; /* Масштабируем изображение, чтобы заполнить контейнер без искажений */
+button[type="submit"]:hover {
+    background-color: #218838;
 }
